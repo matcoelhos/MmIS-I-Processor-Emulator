@@ -9,15 +9,20 @@
 .data
 
 V = 6 5 7 8 2 1 4 3 9
+SP = 0
+X = 6 5 7 8 2 1 4 3 9
 
 .program
 
-lw $s0, V
+lw $s0, X
+add $s1, $zero, $zero
 mainloop:
     add $t1, $s0, $zero
-    add $t7, $t1, $zero
-    add $t2, $t1, $zero
+    add $t7, $s0, $zero
+    
+    add $t2, $s1, $zero
     add $t2, $t2, 1
+    
     lw $t8, 0($s0)
     lw $t3, 0($t1)
 
@@ -37,8 +42,11 @@ mainloop:
 
     sw $t3, 0($s0)
     sw $t8, 0($t7)
+
     add $s0, $s0, 1
-    slt $t9, $s0, 8
+    add $s1, $s1, 1
+    
+    slt $t9, $s1, 8
     bne $t9, $zero, mainloop:
 #end
 

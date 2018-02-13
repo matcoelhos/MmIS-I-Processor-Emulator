@@ -323,6 +323,6 @@ int main(int argc, char * argv[])
   }
   cout << "clocks: " << clocks << endl;
   cout << "Data: ";
-  for (int i = 0; i < 9; i++) cout << DataMemory[i] << " ";
+  for (int i = 0; i < 20; i++) cout << DataMemory[i] << " ";
   cout << endl;
 }
